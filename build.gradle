@@ -8,6 +8,7 @@
 plugins {
     // Apply the java-library plugin for API and implementation separation.
     id 'java-library'
+    id("io.freefair.lombok") version "${lombokPluginVersion}"
 }
 
 repositories {
@@ -16,16 +17,22 @@ repositories {
 }
 
 dependencies {
-    // Use JUnit Jupiter for testing.
-    testImplementation libs.junit.jupiter
-
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api libs.commons.math3
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation libs.guava
+    implementation "network.casper:casper-java-sdk:${casperSdkVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+    implementation "dev.oak3:sbs4j:${sbs4jVersion}"
+
+    // Use JUnit Jupiter for testing.
+    testImplementation libs.junit.jupiter
+    testImplementation("org.assertj:assertj-core:${jAssertVersion   }")
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

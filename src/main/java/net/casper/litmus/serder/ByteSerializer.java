@@ -6,5 +6,4 @@ package net.casper.litmus.serder;
 public interface  ByteSerializer<T> {
 
     byte[] toBytes(final T t);
-
 }

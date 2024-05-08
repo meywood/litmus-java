@@ -5,14 +5,21 @@ import com.casper.sdk.model.block.JsonBlockBody;
 import com.casper.sdk.model.common.Digest;
 import com.syntifi.crypto.key.hash.Blake2b;
 import net.casper.litmus.serder.JsonBlockBodyByteSerializer;
+import net.casper.litmus.serder.JsonBlockHeaderByteSerializer;
 
 /**
  * @author ian@meywood.com
  */
 public class Verifier {
 
+    private final JsonBlockHeaderByteSerializer jsonBlockHeaderByteSerializer = new JsonBlockHeaderByteSerializer();
+    private final JsonBlockBodyByteSerializer jsonBlockBodyByteSerializer = new JsonBlockBodyByteSerializer();
+
     void verifyBlock(final JsonBlock block) {
         assert block != null : "Block cannot be null";
+
+        var headerBytes = jsonBlockHeaderByteSerializer.toBytes(block.getHeader());
+        var bytes = jsonBlockBodyByteSerializer.toBytes(block.getBody());
 
         throw new RuntimeException("Not implemented");
     }
@@ -21,7 +28,8 @@ public class Verifier {
         assert expectedBodyHash != null : "Expected body hash  cannot be null";
         assert blockBody != null : "Block body cannot be null";
 
-        var bytes = new JsonBlockBodyByteSerializer().toBytes(blockBody);
+
+        var bytes = jsonBlockBodyByteSerializer.toBytes(blockBody);
         var bodyHash = toDigest(bytes);
 
         if (!bodyHash.equals(expectedBodyHash)) {

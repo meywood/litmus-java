@@ -17,7 +17,6 @@ class JsonBlockBodyByteSerializerTest {
     @Test
     void toBytes() throws Exception {
 
-
         final byte[] proposerBytes = {
                 (byte) 0x2,
                 (byte) 0x3,
@@ -300,7 +299,7 @@ class JsonBlockBodyByteSerializerTest {
         };
 
 
-        byte[] expectedBodyBytes = {
+        final byte[] expectedBodyBytes = {
                 (byte) 0x2,
                 (byte) 0x3,
                 (byte) 0x55,
@@ -569,9 +568,9 @@ class JsonBlockBodyByteSerializerTest {
                 (byte) 0x8b,
         };
 
-        final PublicKey proposer = PublicKey.fromBytes(proposerBytes);
+        var proposer = PublicKey.fromBytes(proposerBytes);
 
-        final JsonBlockBody build = JsonBlockBody
+        var build = JsonBlockBody
                 .builder()
                 .proposer(proposer)
                 .deployHashes(
@@ -591,8 +590,9 @@ class JsonBlockBodyByteSerializerTest {
                 )
                 .build();
 
-        JsonBlockBodyByteSerializer jsonBlockBodyByteSerializer = new JsonBlockBodyByteSerializer();
-        byte[] bytes = jsonBlockBodyByteSerializer.toBytes(build);
+        var jsonBlockBodyByteSerializer = new JsonBlockBodyByteSerializer();
+        var bytes = jsonBlockBodyByteSerializer.toBytes(build);
+
         assertThat(bytes).isNotNull();
         assertThat(bytes).isEqualTo(expectedBodyBytes);
     }

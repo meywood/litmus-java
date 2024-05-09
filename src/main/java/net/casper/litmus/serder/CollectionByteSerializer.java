@@ -10,7 +10,7 @@ import java.util.function.Consumer;
  */
 public class CollectionByteSerializer {
 
-    public <T> byte[] toBytes(final SerializerBuffer ser, final Collection<T> collection, final Consumer<T> consumer) {
+    public <T> void toBytes(final SerializerBuffer ser, final Collection<T> collection, final Consumer<T> consumer) {
 
         if (collection == null) {
             ser.writeU32(0L);
@@ -20,7 +20,5 @@ public class CollectionByteSerializer {
                 consumer.accept(t);
             }
         }
-        return ser.toByteArray();
     }
-
 }

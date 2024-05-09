@@ -19,15 +19,24 @@ public class Verifier {
         assert block != null : "Block cannot be null";
 
         var headerBytes = jsonBlockHeaderByteSerializer.toBytes(block.getHeader());
-        var bytes = jsonBlockBodyByteSerializer.toBytes(block.getBody());
 
-        throw new RuntimeException("Not implemented");
+        verifyBlockBody(block.getHeader().getBodyHash(), block.getBody());
+
+        var blockHash = toDigest(headerBytes);
+
+        if (!blockHash.equals(block.getHash())) {
+            throw new UpdateException(
+                    "Block  hash does not match expected hash \nExpected: "
+                            + block.getHash()
+                            + "\nActual: "
+                            + blockHash
+            );
+        }
     }
 
     void verifyBlockBody(final Digest expectedBodyHash, final JsonBlockBody blockBody) {
         assert expectedBodyHash != null : "Expected body hash  cannot be null";
         assert blockBody != null : "Block body cannot be null";
-
 
         var bytes = jsonBlockBodyByteSerializer.toBytes(blockBody);
         var bodyHash = toDigest(bytes);

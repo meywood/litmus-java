@@ -19,28 +19,28 @@ public class Kernel {
     @Getter
     @Setter
     public static class ParentHashAndCurrentHeight {
-        Digest parentHash;
-        long currentHeight;
+        private Digest parentHash;
+        private long currentHeight;
     }
 
     @Getter
     @Setter
     public static class BlockSignatures {
-        Digest blockHash;
-        Long eraId;
-        Map<PublicKey, Signature> proofs;
+        private Digest blockHash;
+        private Long eraId;
+        private Map<PublicKey, Signature> proofs;
     }
 
     @Getter
     @Setter
     public static class BlockHeaderWithSignatures {
-        JsonBlockHeader blockHeader;
-        BlockSignatures blockSignatures;
+        private JsonBlockHeader blockHeader;
+        private BlockSignatures blockSignatures;
     }
 
-    private Digest latestBlockHash;
-    private EraInfo eraInfo;
-    private ParentHashAndCurrentHeight parentHashAndCurrentHeight;
+    private final Digest latestBlockHash;
+    private final EraInfo eraInfo;
+    private final ParentHashAndCurrentHeight parentHashAndCurrentHeight;
 
     public Kernel(final Digest latestBlockHash) {
         this.latestBlockHash = latestBlockHash;

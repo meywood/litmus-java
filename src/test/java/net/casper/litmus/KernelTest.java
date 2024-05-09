@@ -41,7 +41,7 @@ class KernelTest {
 
 
     @Test
-    void blockBodyBtres() {
+    void blockBodyBytes() {
 
     }
 }

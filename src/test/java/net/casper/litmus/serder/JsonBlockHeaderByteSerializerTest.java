@@ -19,9 +19,6 @@ class JsonBlockHeaderByteSerializerTest {
             var blockByHeight = new BlockCache().getBlockByHeight((long) i);
             byte[] bytes = serializer.toBytes(blockByHeight.getHeader());
             assertThat(bytes.length).isGreaterThan(0);
-
-
-
         }
     }
 }

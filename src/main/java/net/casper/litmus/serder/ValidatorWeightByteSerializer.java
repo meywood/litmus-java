@@ -23,5 +23,4 @@ public class ValidatorWeightByteSerializer implements ByteSerializer<ValidatorWe
 
         return ser.toByteArray();
     }
-
 }

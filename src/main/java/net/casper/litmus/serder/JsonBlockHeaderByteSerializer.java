@@ -21,7 +21,6 @@ public class JsonBlockHeaderByteSerializer implements ByteSerializer<JsonBlockHe
         var ser = new SerializerBuffer();
 
         try {
-
             ser.writeByteArray(digestByteSerializer.toBytes(blockHeader.getParentHash()));
             ser.writeByteArray(digestByteSerializer.toBytes(blockHeader.getStateRootHash()));
             ser.writeByteArray(digestByteSerializer.toBytes(blockHeader.getBodyHash()));

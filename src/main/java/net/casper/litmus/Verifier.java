@@ -15,7 +15,7 @@ public class Verifier {
     private final JsonBlockHeaderByteSerializer jsonBlockHeaderByteSerializer = new JsonBlockHeaderByteSerializer();
     private final JsonBlockBodyByteSerializer jsonBlockBodyByteSerializer = new JsonBlockBodyByteSerializer();
 
-    void verifyBlock(final JsonBlock block) {
+    public void verifyBlock(final JsonBlock block) {
         assert block != null : "Block cannot be null";
 
         var headerBytes = jsonBlockHeaderByteSerializer.toBytes(block.getHeader());

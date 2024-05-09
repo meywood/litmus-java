@@ -8,7 +8,6 @@ import dev.oak3.sbs4j.SerializerBuffer;
  */
 public class JsonEraEndByteSerializer implements ByteSerializer<JsonEraEnd> {
 
-
     private final JsonEraReportByteSerializer jsonEraReportByteSerializer = new JsonEraReportByteSerializer();
     private final ValidatorWeightByteSerializer validatorWeightByteSerializer = new ValidatorWeightByteSerializer();
     private final CollectionByteSerializer collectionByteSerializer = new CollectionByteSerializer();

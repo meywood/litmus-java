@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
  */
 class VerifierTest {
 
-
     @Test
     void verifyBlock() {
 
@@ -26,7 +25,7 @@ class VerifierTest {
 
         for (int i = 0; i < 100; i++) {
             var blockByHeight = new BlockCache().getBlockByHeight((long) i);
-            // TODO
+            verifier.verifyBlockBody(blockByHeight.getHeader().getBodyHash(), blockByHeight.getBody());
         }
     }
 }

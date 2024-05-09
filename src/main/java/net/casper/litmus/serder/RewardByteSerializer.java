@@ -10,6 +10,7 @@ import java.math.BigInteger;
  * @author ian@meywood.com
  */
 public class RewardByteSerializer implements ByteSerializer<Reward> {
+
     @Override
     public byte[] toBytes(final Reward reward) {
         var ser = new SerializerBuffer();

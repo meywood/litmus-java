@@ -31,7 +31,7 @@ dependencies {
 
     // Use JUnit Jupiter for testing.
     testImplementation libs.junit.jupiter
-    testImplementation("org.assertj:assertj-core:${jAssertVersion   }")
+    testImplementation("org.assertj:assertj-core:${jAssertVersion}")
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 

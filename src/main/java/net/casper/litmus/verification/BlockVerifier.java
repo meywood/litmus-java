@@ -27,11 +27,9 @@ public class BlockVerifier {
     public void verifyBlock(final JsonBlock block) {
         assert block != null : "Block cannot be null";
 
-        var headerBytes = jsonBlockHeaderByteSerializer.toBytes(block.getHeader());
-
         verifyBlockBody(block.getHeader().getBodyHash(), block.getBody());
 
-        var blockHash = toDigest(headerBytes);
+        var blockHash = toDigest(jsonBlockHeaderByteSerializer.toBytes(block.getHeader()));
 
         if (!blockHash.equals(block.getHash())) {
             throw new BlockVerificationException(
@@ -47,8 +45,7 @@ public class BlockVerifier {
         assert expectedBodyHash != null : "Expected body hash  cannot be null";
         assert blockBody != null : "Block body cannot be null";
 
-        var bytes = jsonBlockBodyByteSerializer.toBytes(blockBody);
-        var bodyHash = toDigest(bytes);
+        var bodyHash = toDigest(jsonBlockBodyByteSerializer.toBytes(blockBody));
 
         if (!bodyHash.equals(expectedBodyHash)) {
             throw new BlockVerificationException(

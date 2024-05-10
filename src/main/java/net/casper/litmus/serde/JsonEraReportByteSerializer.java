@@ -14,26 +14,31 @@ public class JsonEraReportByteSerializer implements ByteSerializer<JsonEraReport
 
     @Override
     public byte[] toBytes(final JsonEraReport jsonEraReport) {
-
         var ser = new SerializerBuffer();
 
-        collectionByteSerializer.toBytes(
-                ser,
+        ser.writeByteArray(collectionByteSerializer.toBytes(
                 jsonEraReport.getEquivocators(),
-                equivocator -> equivocator.serialize(ser, Target.JSON)
-        );
+                equivocator -> {
+                    var serEqu = new SerializerBuffer();
+                    equivocator.serialize(serEqu, Target.JSON);
+                    return serEqu.toByteArray();
+                }
+        ));
 
-        collectionByteSerializer.toBytes(
-                ser,
+        ser.writeByteArray(collectionByteSerializer.toBytes(
                 jsonEraReport.getRewards(),
-                reward -> ser.writeByteArray(rewardByteSerializer.toBytes(reward))
-        );
+                rewardByteSerializer
+        ));
 
-        collectionByteSerializer.toBytes(
-                ser,
+        ser.writeByteArray(collectionByteSerializer.toBytes(
                 jsonEraReport.getInactiveValidators(),
-                validator -> validator.serialize(ser, Target.JSON)
-        );
+                publicKey -> {
+                    var serKey = new SerializerBuffer();
+                    publicKey.serialize(serKey, Target.JSON);
+                    return serKey.toByteArray();
+                }
+
+        ));
 
         return ser.toByteArray();
     }

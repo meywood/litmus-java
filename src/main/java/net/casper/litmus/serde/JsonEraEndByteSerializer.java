@@ -14,18 +14,16 @@ public class JsonEraEndByteSerializer implements ByteSerializer<JsonEraEnd> {
 
     @Override
     public byte[] toBytes(final JsonEraEnd jsonEraEnd) {
-
         var ser = new SerializerBuffer();
 
         if (jsonEraEnd != null) {
             // Write as option some
             ser.writeU8((byte) 1);
             ser.writeByteArray(this.jsonEraReportByteSerializer.toBytes(jsonEraEnd.getEraReport()));
-            collectionByteSerializer.toBytes(
-                    ser,
+            ser.writeByteArray(collectionByteSerializer.toBytes(
                     jsonEraEnd.getNextEraValidatorWeights(),
-                    validatorWeight -> ser.writeByteArray(validatorWeightByteSerializer.toBytes(validatorWeight))
-            );
+                    validatorWeightByteSerializer
+            ));
         } else {
             // write as option none
             ser.writeU8((byte) 0);

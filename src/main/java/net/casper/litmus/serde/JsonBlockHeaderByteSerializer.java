@@ -17,7 +17,6 @@ public class JsonBlockHeaderByteSerializer implements ByteSerializer<JsonBlockHe
 
     @Override
     public byte[] toBytes(final JsonBlockHeader blockHeader) {
-
         var ser = new SerializerBuffer();
 
         try {

@@ -23,7 +23,6 @@ public class JsonBlockBodyByteSerializer implements ByteSerializer<JsonBlockBody
 
         ser.writeByteArray(digestByteSerializer.toBytes(blockBody.getDeployHashes()));
         ser.writeByteArray(digestByteSerializer.toBytes(blockBody.getTransferHashes()));
-
         return ser.toByteArray();
     }
 }

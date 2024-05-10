@@ -14,14 +14,12 @@ public class RewardByteSerializer implements ByteSerializer<Reward> {
     @Override
     public byte[] toBytes(final Reward reward) {
         var ser = new SerializerBuffer();
-
         try {
             reward.getValidator().serialize(ser, Target.JSON);
             ser.writeU64(BigInteger.valueOf(reward.getAmount()));
         } catch (Exception e) {
             throw new ByteSerializeException(e);
         }
-
         return ser.toByteArray();
     }
 }

@@ -12,7 +12,6 @@ public class ValidatorWeightByteSerializer implements ByteSerializer<ValidatorWe
 
     @Override
     public byte[] toBytes(final ValidatorWeight validatorWeight) {
-
         var ser = new SerializerBuffer();
         try {
             validatorWeight.getValidator().serialize(ser, Target.JSON);
@@ -20,7 +19,6 @@ public class ValidatorWeightByteSerializer implements ByteSerializer<ValidatorWe
         } catch (ValueSerializationException e) {
             throw new ByteSerializeException(e);
         }
-
         return ser.toByteArray();
     }
 }

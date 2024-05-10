@@ -4,6 +4,7 @@ import com.casper.sdk.model.common.Digest;
 import dev.oak3.sbs4j.SerializerBuffer;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 /**
  * @author ian@meywood.com
@@ -20,12 +21,9 @@ public class DigestByteSerializer implements ByteSerializer<Digest> {
     }
 
     public byte[] toBytes(final Collection<String> digests) {
-        var ser = new SerializerBuffer();
-        collectionByteSerializer.toBytes(
-                ser,
-                digests,
-                digest -> ser.writeByteArray(toBytes(new Digest(digest)))
+        return collectionByteSerializer.toBytes(
+                digests.stream().map(Digest::new).collect(Collectors.toList()),
+                this
         );
-        return ser.toByteArray();
     }
 }

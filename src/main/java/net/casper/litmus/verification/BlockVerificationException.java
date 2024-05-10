@@ -1,6 +1,8 @@
 package net.casper.litmus.verification;
 
 /**
+ * Exception thrown when a block fails verification. That is it's hash or body hard are not valid.
+ *
  * @author ian@meywood.com
  */
 public class BlockVerificationException extends RuntimeException {

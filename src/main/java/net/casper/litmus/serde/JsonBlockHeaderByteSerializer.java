@@ -1,4 +1,4 @@
-package net.casper.litmus.serder;
+package net.casper.litmus.serde;
 
 import com.casper.sdk.model.block.JsonBlockHeader;
 import dev.oak3.sbs4j.SerializerBuffer;

@@ -1,6 +1,5 @@
-package net.casper.litmus.serder;
+package net.casper.litmus.serde;
 
-import com.syntifi.crypto.key.hash.Blake2b;
 import net.casper.litmus.BlockCache;
 import org.junit.jupiter.api.Test;
 

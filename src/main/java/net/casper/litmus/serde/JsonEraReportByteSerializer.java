@@ -1,4 +1,4 @@
-package net.casper.litmus.serder;
+package net.casper.litmus.serde;
 
 import com.casper.sdk.model.clvalue.serde.Target;
 import com.casper.sdk.model.era.JsonEraReport;

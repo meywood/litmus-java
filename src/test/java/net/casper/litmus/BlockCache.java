@@ -20,7 +20,7 @@ public class BlockCache {
         try {
             final ObjectMapper objectMapper = new ObjectMapper();
             for (int i = 0; i < 100; i++) {
-                final InputStream in = KernelTest.class.getResourceAsStream("/assets/blocks/block-" + i + ".json");
+                final InputStream in = BlockCache.class.getResourceAsStream("/assets/blocks/block-" + i + ".json");
                 JsonBlock jsonBlock = objectMapper.readValue(in, JsonBlock.class);
                 heightBlockMap.put(jsonBlock.getHeader().getHeight(), jsonBlock);
             }
@@ -32,4 +32,5 @@ public class BlockCache {
     public JsonBlock getBlockByHeight(final long height) {
         return heightBlockMap.get(height);
     }
+
 }

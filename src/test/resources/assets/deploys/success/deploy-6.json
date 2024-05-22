@@ -1,0 +1,59 @@
+{
+  "hash": "80ee8822d03d8a2addf46f3ade45a9401da2e2980017ca561dcff91309f117a9",
+  "header": {
+    "ttl": "30m",
+    "account": "01309eac0bd7ae8b269c2f27924516080879b1166d601fb434e3542ee51b685e77",
+    "body_hash": "ff01ff82bae0f6e9f3758162e571e2d8bbe8a8a8d83efe1c32955df650049222",
+    "gas_price": 1,
+    "timestamp": "2024-03-23T18:35:17.021Z",
+    "chain_name": "casper",
+    "dependencies": []
+  },
+  "payment": {
+    "ModuleBytes": {
+      "args": [
+        [
+          "amount",
+          {
+            "bytes": "0400286bee",
+            "parsed": "4000000000",
+            "cl_type": "U512"
+          }
+        ]
+      ],
+      "module_bytes": ""
+    }
+  },
+  "session": {
+    "StoredContractByHash": {
+      "args": [
+        [
+          "token_owner",
+          {
+            "bytes": "00fb2c5243d1d28ef79908a83f519a942a6c4a56756174de84f0f57cea78b30d85",
+            "parsed": {
+              "Account": "account-hash-fb2c5243d1d28ef79908a83f519a942a6c4a56756174de84f0f57cea78b30d85"
+            },
+            "cl_type": "Key"
+          }
+        ],
+        [
+          "token_meta_data",
+          {
+            "bytes": "990000007b226e616d65223a22427265657a792054776973746572202331313632222c2273796d626f6c223a22544d222c22746f6b656e5f757269223a2268747470733a2f2f617277656176652e6e65742f35304b5f5645505a47306d535561543356797250446266543741476c5479654e675a326d334b57333070302f6a736f6e2f427265657a795f547769737465725f313136322e6a736f6e227d",
+            "parsed": "{\"name\":\"Breezy Twister #1162\",\"symbol\":\"TM\",\"token_uri\":\"https://arweave.net/50K_VEPZG0mSUaT3VyrPDbfT7AGlTyeNgZ2m3KW30p0/json/Breezy_Twister_1162.json\"}",
+            "cl_type": "String"
+          }
+        ]
+      ],
+      "hash": "be20e2dfdecc118e8863854bcd4ba66fd5fa26ccbfc0b81d53dadd81cfddabe7",
+      "entry_point": "mint"
+    }
+  },
+  "approvals": [
+    {
+      "signer": "01309eac0bd7ae8b269c2f27924516080879b1166d601fb434e3542ee51b685e77",
+      "signature": "017573c40e36da104e3f1fc9e77cf12656ba784d0aad6df80d814cf89b087b236c49cbbca7ab2a3666991e8f268e638a27610a1bcfae5e9bca5e5481ee295afa0a"
+    }
+  ]
+}

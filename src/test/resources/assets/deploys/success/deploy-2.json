@@ -1,0 +1,49 @@
+{
+  "hash": "e96cb427900710e89e39f3a69b8f576c8b5cb3085702f3c33c46fcbb115f1775",
+  "header": {
+    "ttl": "30m",
+    "account": "0202ea6c7f7f281078af87e79a3856d500da39d35743d8253c9bc1fce7b1da0a3536",
+    "body_hash": "41b73b9e8da96377348e7e344a25896ab74e3f47487e1731908212cd0d53ef72",
+    "gas_price": 1,
+    "timestamp": "2024-05-16T09:26:31.913Z",
+    "chain_name": "casper",
+    "dependencies": []
+  },
+  "payment": {
+    "ModuleBytes": {
+      "args": [
+        [
+          "amount",
+          {
+            "bytes": "040095ba0a",
+            "parsed": "180000000",
+            "cl_type": "U512"
+          }
+        ]
+      ],
+      "module_bytes": ""
+    }
+  },
+  "session": {
+    "StoredContractByHash": {
+      "args": [
+        [
+          "campaign_id",
+          {
+            "bytes": "0200000000000000",
+            "parsed": 2,
+            "cl_type": "U64"
+          }
+        ]
+      ],
+      "hash": "12d4295434d99bf30e32e4f163c518a323853bbcbee670f6cfbfec9131350363",
+      "entry_point": "feed_fatso"
+    }
+  },
+  "approvals": [
+    {
+      "signer": "0202ea6c7f7f281078af87e79a3856d500da39d35743d8253c9bc1fce7b1da0a3536",
+      "signature": "02c808c81f8db9a3a7364b0d884968c74427ace3fbd66cef9a8f0235e570b2774407071b63094446992e37c8f0e7d154bacd882d583fa2bfb043c884e445da56aa"
+    }
+  ]
+}

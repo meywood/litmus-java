@@ -4,6 +4,7 @@ import com.casper.sdk.model.block.JsonBlock;
 import com.casper.sdk.model.block.JsonBlockBody;
 import com.casper.sdk.model.common.Digest;
 import com.syntifi.crypto.key.hash.Blake2b;
+import net.casper.litmus.exception.BlockVerificationException;
 import net.casper.litmus.serde.JsonBlockBodyByteSerializer;
 import net.casper.litmus.serde.JsonBlockHeaderByteSerializer;
 

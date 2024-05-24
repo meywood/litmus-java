@@ -5,7 +5,7 @@ package net.casper.litmus.exception;
  * @author Carl Norburn
  */
 public class DeployVerificationException extends RuntimeException {
-    public DeployVerificationException(String message) {
+    public DeployVerificationException(final String message) {
         super(message);
     }
 

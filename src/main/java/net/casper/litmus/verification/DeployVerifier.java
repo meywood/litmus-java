@@ -1,56 +1,43 @@
 package net.casper.litmus.verification;
 
-import com.casper.sdk.exception.NoSuchTypeException;
-import com.casper.sdk.helper.CasperDeployHelper;
+import com.casper.sdk.model.common.Digest;
 import com.casper.sdk.model.deploy.Deploy;
-import com.casper.sdk.model.deploy.DeployHeader;
-import com.casper.sdk.model.deploy.executabledeploy.ModuleBytes;
-import com.casper.sdk.model.key.PublicKey;
-import dev.oak3.sbs4j.exception.ValueSerializationException;
+import com.syntifi.crypto.key.hash.Blake2b;
 import net.casper.litmus.exception.DeployVerificationException;
-
-import java.security.NoSuchAlgorithmException;
-
-import static com.casper.sdk.helper.CasperDeployHelper.buildDeployHeader;
+import net.casper.litmus.serde.DeployByteSerializer;
 
 /**
- * Verifies a Deploy by building the Deploy Header and comparing the resulting body hash with the supplied body hash
+ * Serialises a Deploy and compares the resulting hash with the supplied deploy hash
  *
  * @author Carl Norburn
  */
 public class DeployVerifier {
 
+    private final DeployByteSerializer deployByteSerializer = new DeployByteSerializer();
+
     /**
-     * Verifies the Deploy by serialising the given deploy's header and comparing the hashed body
+     * Verifies the Deploy by serialising the given deploy and comparing the hash
      *
      * @param deploy the deploy to verify
-     * @throws NoSuchAlgorithmException non-supported supplied public key
-     * @throws NoSuchTypeException invalid cl_type supplied
-     * @throws ValueSerializationException can not serialise a given type
-     * @throws DeployVerificationException failed comparison of the body hashes
      */
-    public void verifyDeploy(final Deploy deploy) throws NoSuchAlgorithmException, NoSuchTypeException,
-            ValueSerializationException {
+    public void verifyDeploy(final Deploy deploy) {
 
         assert deploy != null;
 
-        final DeployHeader deployHeader = buildDeployHeader(
-                PublicKey.fromAbstractPublicKey(deploy.getHeader().getAccount().getPubKey()),
-                deploy.getHeader().getChainName(),
-                deploy.getHeader().getGasPrice(),
-                deploy.getHeader().getTtl(),
-                deploy.getHeader().getTimeStamp(),
-                deploy.getHeader().getDependencies(),
-                CasperDeployHelper.getDeployItemAndModuleBytesHash(deploy.getSession(), (ModuleBytes) deploy.getPayment())
-        );
+        var deployHash = toDigest(deployByteSerializer.toBytes(deploy));
 
-        if (!deployHeader.getBodyHash().equals(deploy.getHeader().getBodyHash())) {
+        if (!deployHash.equals(deploy.getHash())) {
             throw new DeployVerificationException(
                     "Deploy body hash does not match expected body hash \nExpected: "
-                            + deployHeader.getBodyHash()
+                            + deployHash
                             + "\nActual: "
                             +  deploy.getHeader().getBodyHash()
             );
         }
     }
+
+    private Digest toDigest(final byte[] bytes) {
+        return Digest.digestFromBytes(Blake2b.digest(bytes, 32));
+    }
+
 }

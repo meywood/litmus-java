@@ -1,7 +1,7 @@
 {
   "hash": "57a2fc930ab83f6bf5b3f1d7d5d1bd05ccd20dcbe3135f7c21a0553650d220e6",
   "header": {
-    "ttl": "1day",
+    "ttl": "1d",
     "account": "02024c5e3ba7b1da49cda950319aec914cd3c720fbec3dcf25aa4add631e28f70aa9",
     "body_hash": "f6d1d9207aff50157e85a70946d32ce7fbad76dc82cf3b278aedd2e2186c5c1f",
     "gas_price": 1,

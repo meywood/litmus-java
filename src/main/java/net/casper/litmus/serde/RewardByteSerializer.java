@@ -3,6 +3,7 @@ package net.casper.litmus.serde;
 import com.casper.sdk.model.clvalue.serde.Target;
 import com.casper.sdk.model.era.Reward;
 import dev.oak3.sbs4j.SerializerBuffer;
+import net.casper.litmus.exception.ByteSerializeException;
 
 import java.math.BigInteger;
 

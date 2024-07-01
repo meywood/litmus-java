@@ -1,0 +1,65 @@
+{
+  "hash": "1df13c9aaa8217657b7e5ec2442594735eeb4ca7e764877b3d2b593c3909d15f",
+  "header": {
+    "ttl": "30m",
+    "account": "020287a38f11ac7aab689205912b981c21b80cf1efdd7541bd09cbe1e6ad6e8f188c",
+    "body_hash": "fcdee177c9c3660cc528c182296367e749428a6e069fb6a0b4a1a78477842217",
+    "gas_price": 1,
+    "timestamp": "2024-05-16T09:30:00.135Z",
+    "chain_name": "casper",
+    "dependencies": []
+  },
+  "payment": {
+    "ModuleBytes": {
+      "args": [
+        [
+          "amount",
+          {
+            "bytes": "0400f90295",
+            "parsed": "2500000000",
+            "cl_type": "U512"
+          }
+        ]
+      ],
+      "module_bytes": ""
+    }
+  },
+  "session": {
+    "StoredContractByHash": {
+      "args": [
+        [
+          "delegator",
+          {
+            "bytes": "020287a38f11ac7aab689205912b981c21b80cf1efdd7541bd09cbe1e6ad6e8f188c",
+            "parsed": "020287a38f11ac7aab689205912b981c21b80cf1efdd7541bd09cbe1e6ad6e8f188c",
+            "cl_type": "PublicKey"
+          }
+        ],
+        [
+          "validator",
+          {
+            "bytes": "0169e1552a97843ff2ef4318e8a028a9f4ed0c16b3d96f6a6eee21e6ca0d4022bc",
+            "parsed": "0169e1552a97843ff2ef4318e8a028a9f4ed0c16b3d96f6a6eee21e6ca0d4022bc",
+            "cl_type": "PublicKey"
+          }
+        ],
+        [
+          "amount",
+          {
+            "bytes": "064035b9160461",
+            "parsed": "106670189000000",
+            "cl_type": "U512"
+          }
+        ]
+      ],
+      "hash": "ccb576d6ce6dec84a551e48f0d0b7af89ddba44c7390b690036257a04a3ae9ea",
+      "entry_point": "delegate"
+    }
+  },
+  "approvals": [
+    {
+      "signer": "020287a38f11ac7aab689205912b981c21b80cf1efdd7541bd09cbe1e6ad6e8f188c",
+      "signature": "02d1a796f1221e2256dbe85904e2c3d07be52c1482f8b3cfdce0bef0b6d4c5fc5537e3d8720054888eba9ddcb4c6ff388fabb5c09143000980e6af9096ee163524"
+    }
+  ]
+}

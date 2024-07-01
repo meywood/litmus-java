@@ -1,0 +1,83 @@
+{
+  "hash": "d8683d714422f9d0d7ebeee084e1516ff2f35cfeac7c64c7b3c006905fe6a25d",
+  "header": {
+    "ttl": "30m",
+    "account": "0152ad2f8875452b6488397fcd0e2d391d9e200e599c33cf2ac7fd69e0f477df5a",
+    "body_hash": "1e0109385f2f28f83e02099d2523a1c74b722fdc0060474df10864752762af4c",
+    "gas_price": 1,
+    "timestamp": "2024-03-24T05:22:55.935Z",
+    "chain_name": "casper",
+    "dependencies": []
+  },
+  "payment": {
+    "ModuleBytes": {
+      "args": [
+        [
+          "amount",
+          {
+            "bytes": "0500f2052a01",
+            "parsed": "5000000000",
+            "cl_type": "U512"
+          }
+        ]
+      ],
+      "module_bytes": ""
+    }
+  },
+  "session": {
+    "StoredContractByHash": {
+      "args": [
+        [
+          "tick",
+          {
+            "bytes": "050000006373707273",
+            "parsed": "csprs",
+            "cl_type": "String"
+          }
+        ],
+        [
+          "seller",
+          {
+            "bytes": "b6b3b6555bd7f1b0537f4a8b2a91fb69079926ccc71c1132dc1570735a408ea8",
+            "parsed": "b6b3b6555bd7f1b0537f4a8b2a91fb69079926ccc71c1132dc1570735a408ea8",
+            "cl_type": {
+              "ByteArray": 32
+            }
+          }
+        ],
+        [
+          "price",
+          {
+            "bytes": "04801d2c04",
+            "parsed": "70000000",
+            "cl_type": "U512"
+          }
+        ],
+        [
+          "amount",
+          {
+            "bytes": "0164",
+            "parsed": "100",
+            "cl_type": "U512"
+          }
+        ],
+        [
+          "item_index",
+          {
+            "bytes": "6c1b050000000000",
+            "parsed": 334700,
+            "cl_type": "U64"
+          }
+        ]
+      ],
+      "hash": "c033fab3c6dedd7a82a170e96d54bd46f0dcb9132db76f7a56f3f1004718a797",
+      "entry_point": "list"
+    }
+  },
+  "approvals": [
+    {
+      "signer": "0152ad2f8875452b6488397fcd0e2d391d9e200e599c33cf2ac7fd69e0f477df5a",
+      "signature": "01bc36f72963bb316fe3db0373f3151bc4d7da743d37fe1d1d45d6f8da525d60033c8e71061b803c77b3bc0fa66ddf8c29246871110a7421f26c6c1a33eada1000"
+    }
+  ]
+}

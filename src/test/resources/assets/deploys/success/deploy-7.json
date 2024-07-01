@@ -1,0 +1,59 @@
+{
+  "hash": "b6750483f324350c2e8c978cd50bd3f698b82f510a2ad335dadcc2b295884c3d",
+  "header": {
+    "ttl": "30m",
+    "account": "019793d2003d2840c7582c8106569e4a4aae75ee0fe2a73296c3c2ceafd8b85dcb",
+    "body_hash": "b27901a64ff903b3ebd465e3cdb87299193412c91f11e7db9335a86e7e82e953",
+    "gas_price": 1,
+    "timestamp": "2024-03-24T03:37:06.140Z",
+    "chain_name": "casper",
+    "dependencies": []
+  },
+  "payment": {
+    "ModuleBytes": {
+      "args": [
+        [
+          "amount",
+          {
+            "bytes": "04005ed0b2",
+            "parsed": "3000000000",
+            "cl_type": "U512"
+          }
+        ]
+      ],
+      "module_bytes": ""
+    }
+  },
+  "session": {
+    "StoredContractByHash": {
+      "args": [
+        [
+          "spender",
+          {
+            "bytes": "01d39f94dc5b00b1bc6dd378fc3ff45e7cfde08dcebf48abf1cf3a98d18fac850f",
+            "parsed": {
+              "Hash": "hash-d39f94dc5b00b1bc6dd378fc3ff45e7cfde08dcebf48abf1cf3a98d18fac850f"
+            },
+            "cl_type": "Key"
+          }
+        ],
+        [
+          "amount",
+          {
+            "bytes": "079e19456a622002",
+            "parsed": "598557015218590",
+            "cl_type": "U256"
+          }
+        ]
+      ],
+      "hash": "7a437ac8dda6425bf65c3ae8a4c6ff0f40a629f8a2373c1069162ac638bf935f",
+      "entry_point": "increase_allowance"
+    }
+  },
+  "approvals": [
+    {
+      "signer": "019793d2003d2840c7582c8106569e4a4aae75ee0fe2a73296c3c2ceafd8b85dcb",
+      "signature": "01c7f6edec864181ff3f7bf2ab6eca51cfffb7ab86fc01555368e5f520d580792ee175dedba9774c9815fec28c5ce7ab088b03b59a12028083c09bf80eb8102d04"
+    }
+  ]
+}

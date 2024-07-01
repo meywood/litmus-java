@@ -3,6 +3,7 @@ package net.casper.litmus.serde;
 import com.casper.sdk.model.block.JsonBlockHeader;
 import dev.oak3.sbs4j.SerializerBuffer;
 import dev.oak3.sbs4j.exception.ValueSerializationException;
+import net.casper.litmus.exception.ByteSerializeException;
 
 import java.math.BigInteger;
 

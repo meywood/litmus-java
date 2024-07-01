@@ -1,4 +1,4 @@
-package net.casper.litmus.serde;
+package net.casper.litmus.exception;
 
 /**
  * Exception thrown on byte serialization error.
@@ -6,7 +6,6 @@ package net.casper.litmus.serde;
  * @author ian@meywood.com
  */
 public class ByteSerializeException extends RuntimeException {
-
     public ByteSerializeException(Throwable cause) {
         super(cause);
     }

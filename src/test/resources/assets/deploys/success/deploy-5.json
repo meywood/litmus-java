@@ -1,0 +1,95 @@
+{
+  "hash": "92c983f3bb205b4f642f532dff837ebed56b19f11351da9181f6512e75a54a9b",
+  "header": {
+    "ttl": "30m",
+    "account": "02027fec2d969dd0779358c40abe2a772f309408348c2a1f413fddfe684a4287ba1a",
+    "body_hash": "1b7df8f73c3f5f199c4da6f194e44afadfc4fd292c7f1dd443f623b842a9e4a4",
+    "gas_price": 1,
+    "timestamp": "2024-03-21T09:07:28.492Z",
+    "chain_name": "casper",
+    "dependencies": []
+  },
+  "payment": {
+    "ModuleBytes": {
+      "args": [
+        [
+          "amount",
+          {
+            "bytes": "0500743ba40b",
+            "parsed": "50000000000",
+            "cl_type": "U512"
+          }
+        ]
+      ],
+      "module_bytes": ""
+    }
+  },
+  "session": {
+    "StoredContractByHash": {
+      "args": [
+        [
+          "deployment_threshold",
+          {
+            "bytes": "05",
+            "parsed": 5,
+            "cl_type": "U8"
+          }
+        ],
+        [
+          "key_management_threshold",
+          {
+            "bytes": "05",
+            "parsed": 5,
+            "cl_type": "U8"
+          }
+        ],
+        [
+          "keys",
+          {
+            "bytes": "0400000000b85634e0695ac3b6a7792c2009377b4a405118571a9c64ab2c66048250fef36c002ee04ac2c549b071da87f7ee32510f4b06e82e3a2a09738ef43f8c00577f6a26003125bb151c520d59b67aeb5fc0bc81124d3f0672d704c23adadea9f71002b1ca0070561f292a08d93706a094e9b9bfca381b3b878ca772b23a94c8752d448cf491",
+            "parsed": [
+              {
+                "Account": "account-hash-b85634e0695ac3b6a7792c2009377b4a405118571a9c64ab2c66048250fef36c"
+              },
+              {
+                "Account": "account-hash-2ee04ac2c549b071da87f7ee32510f4b06e82e3a2a09738ef43f8c00577f6a26"
+              },
+              {
+                "Account": "account-hash-3125bb151c520d59b67aeb5fc0bc81124d3f0672d704c23adadea9f71002b1ca"
+              },
+              {
+                "Account": "account-hash-70561f292a08d93706a094e9b9bfca381b3b878ca772b23a94c8752d448cf491"
+              }
+            ],
+            "cl_type": {
+              "List": "Key"
+            }
+          }
+        ],
+        [
+          "weights",
+          {
+            "bytes": "0400000005020201",
+            "parsed": [
+              5,
+              2,
+              2,
+              1
+            ],
+            "cl_type": {
+              "List": "U8"
+            }
+          }
+        ]
+      ],
+      "hash": "b2ec4f982efa8643c979cb3ab42ad1a18851c2e6f91804cd3e65c079679bdc59",
+      "entry_point": "set_associated_keys"
+    }
+  },
+  "approvals": [
+    {
+      "signer": "02027fec2d969dd0779358c40abe2a772f309408348c2a1f413fddfe684a4287ba1a",
+      "signature": "022f26d3a896e5ad74bafc381455fc9bec808cea64b083b4a05e3dae43d80478820f59128c97bb50b52d5eba90eb29ec8dbd1b39fe6488bbc8c44a799e9a631878"
+    }
+  ]
+}

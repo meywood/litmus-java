@@ -9,4 +9,7 @@ public class DeployVerificationException extends RuntimeException {
         super(message);
     }
 
+    public DeployVerificationException(Throwable cause) {
+        super(cause);
+    }
 }

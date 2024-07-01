@@ -5,7 +5,7 @@ import com.casper.sdk.model.clvalue.serde.Target;
 import com.casper.sdk.model.deploy.DeployHeader;
 import dev.oak3.sbs4j.SerializerBuffer;
 import dev.oak3.sbs4j.exception.ValueSerializationException;
-import net.casper.litmus.exception.DeployVerificationException;
+import net.casper.litmus.exception.ByteSerializeException;
 
 public class DeployBodyByteSerializer implements ByteSerializer<DeployHeader> {
     @Override
@@ -18,7 +18,7 @@ public class DeployBodyByteSerializer implements ByteSerializer<DeployHeader> {
             deployHeader.serialize(ser, Target.BYTE);
 
         } catch (NoSuchTypeException | ValueSerializationException e) {
-            throw new DeployVerificationException(e.getMessage());
+            throw new ByteSerializeException(e);
         }
 
         return ser.toByteArray();

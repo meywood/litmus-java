@@ -33,7 +33,7 @@ public class DeployHeaderHelper {
                     CasperDeployHelper.getDeployItemAndModuleBytesHash(deploy.getSession(), (ModuleBytes) deploy.getPayment())
             );
         } catch (ValueSerializationException | RuntimeException | NoSuchAlgorithmException | NoSuchTypeException e) {
-            throw new DeployVerificationException(e.getMessage());
+            throw new DeployVerificationException(e);
         }
     }
 

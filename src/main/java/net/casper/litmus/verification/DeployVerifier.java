@@ -8,7 +8,7 @@ import net.casper.litmus.exception.DeployVerificationException;
 import net.casper.litmus.serde.DeployBodyByteSerializer;
 import net.casper.litmus.verification.helper.DeployHeaderHelper;
 
-import com.casper.sdk.model.key.PublicKey;
+import java.security.GeneralSecurityException;
 
 /**
  * Serialises a Deploy and compares the resulting hash with the supplied deploy hash
@@ -24,13 +24,13 @@ public class DeployVerifier {
      *
      * @param jsonDeploy the deploy to verify
      */
-    public void verifyDeploy(final Deploy jsonDeploy) {
+    public void verifyDeploy(final Deploy jsonDeploy) throws GeneralSecurityException {
         assert jsonDeploy != null: "Deploy cannot be null";
 
         var deploy = new DeployHeaderHelper(jsonDeploy);
 
         verifyDeployHeader(jsonDeploy.getHeader().getBodyHash(), deploy.getDeployHeader());
-        verifyDeploySignature(jsonDeploy.getHeader().getAccount(), deploy.getDeployHeader());
+        verifyDeploySignature(jsonDeploy);
 
         var deployHash = toDigest(deployBodyByteSerializer.toBytes(deploy.getDeployHeader()));
 
@@ -56,14 +56,12 @@ public class DeployVerifier {
         }
     }
 
-    private void verifyDeploySignature(final PublicKey expectedAccount, final DeployHeader deployHeader){
+    private void verifyDeploySignature(final Deploy deploy) throws GeneralSecurityException {
 
-        if (!deployHeader.getAccount().equals(expectedAccount)) {
+        if (!deploy.getHeader().getAccount().getPubKey().verify(deploy.getHash().getDigest(),
+                deploy.getApprovals().get(0).getSignature().getKey())) {
             throw new DeployVerificationException(
-                    "Deploy signature does not match expected signature \nExpected: "
-                            + expectedAccount
-                            + "\nActual: "
-                            +  deployHeader.getAccount()
+                    "Deploy signature does not verify against the deploy public key \nDeploy hash: " + deploy.getHash()
             );
         }
     }

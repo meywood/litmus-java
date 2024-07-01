@@ -5,11 +5,13 @@ import net.casper.litmus.DeployCache;
 import net.casper.litmus.exception.DeployVerificationException;
 import org.junit.jupiter.api.Test;
 
+import java.security.GeneralSecurityException;
+
 public class DeployVerifierTest {
     private final DeployVerifier verifier = new DeployVerifier();
     private final DeployCache deployCache = new DeployCache();
     @Test
-    void verifyDeploySuccess() {
+    void verifyDeploySuccess() throws GeneralSecurityException {
         for (Deploy deploy : deployCache.getDeploysSuccess()){
             verifier.verifyDeploy(deploy);
         }
@@ -21,7 +23,7 @@ public class DeployVerifierTest {
             try {
                 verifier.verifyDeploy(deploy);
                 assert false;
-            } catch (DeployVerificationException ex) {
+            } catch (DeployVerificationException | GeneralSecurityException ex) {
                 assert true;
             }
         }

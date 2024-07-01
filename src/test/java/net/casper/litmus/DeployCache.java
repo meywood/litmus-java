@@ -17,7 +17,7 @@ public class DeployCache {
 
         try {
             final ObjectMapper objectMapper = new ObjectMapper();
-            for (int i = 10; i < 11; i++) {
+            for (int i = 0; i <= 11; i++) {
                 final InputStream in = DeployCache.class.getResourceAsStream("/assets/deploys/success/deploy-" + i + ".json");
                 final Deploy deploy = objectMapper.readValue(in, Deploy.class);
                 deploysSuccess.add(deploy);
